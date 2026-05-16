@@ -26,29 +26,83 @@ body::after{content:’’;position:fixed;bottom:-200px;right:-100px;width:550px
 background:radial-gradient(circle,rgba(114,196,168,.04) 0%,transparent 65%);pointer-events:none;z-index:0}
 
 /* ── AUTH ── */
-#auth-screen{position:fixed;inset:0;display:flex;align-items:center;justify-content:center;
-padding:24px;z-index:50;background:var(–bg)}
-.auth-card{background:var(–surface);border:1px solid var(–border);border-radius:22px;
-padding:44px 38px;width:100%;max-width:400px;box-shadow:0 48px 96px rgba(0,0,0,.7)}
-.auth-wordmark{font-family:var(–fd);font-size:26px;font-weight:800;letter-spacing:-1px;margin-bottom:2px}
-.auth-wordmark span{color:var(–gold)}
-.auth-tagline{font-size:11px;letter-spacing:.1em;color:var(–muted);text-transform:uppercase;margin-bottom:32px}
-.tab-row{display:flex;background:var(–s2);border-radius:10px;padding:4px;gap:0;margin-bottom:26px}
-.tab-btn{flex:1;padding:9px;border:none;background:transparent;color:var(–muted);
-font-family:var(–fm);font-size:12px;cursor:pointer;border-radius:7px;transition:.2s}
-.tab-btn.on{background:var(–s3);color:var(–text)}
+#auth-screen{
+position:fixed;top:0;left:0;right:0;bottom:0;
+display:-webkit-flex;display:flex;
+-webkit-align-items:center;align-items:center;
+-webkit-justify-content:center;justify-content:center;
+padding:24px;z-index:50;background:#09090F;
+-webkit-overflow-scrolling:touch;
+}
+.auth-card{
+background:#111119;
+border:1px solid rgba(255,255,255,0.08);
+border-radius:22px;
+padding:40px 34px;
+width:100%;max-width:400px;
+box-shadow:0 32px 64px rgba(0,0,0,.8);
+}
+.auth-wordmark{font-family:var(–fd);font-size:26px;font-weight:800;letter-spacing:-1px;margin-bottom:2px;color:#F0EDE8}
+.auth-wordmark span{color:#C8A97E}
+.auth-tagline{font-size:11px;letter-spacing:.1em;color:#7A7888;text-transform:uppercase;margin-bottom:30px}
+.tab-row{display:-webkit-flex;display:flex;background:#17171F;border-radius:10px;padding:4px;margin-bottom:24px}
+.tab-btn{
+-webkit-flex:1;flex:1;
+padding:10px 8px;
+border:none;
+background:transparent;
+color:#7A7888;
+font-family:var(–fm);
+font-size:13px;
+cursor:pointer;
+border-radius:7px;
+-webkit-appearance:none;
+appearance:none;
+display:block;
+text-align:center;
+-webkit-tap-highlight-color:transparent;
+}
+.tab-btn.on{background:#1D1D27;color:#F0EDE8}
 .field{margin-bottom:14px}
-.field label{display:block;font-size:10px;letter-spacing:.12em;text-transform:uppercase;color:var(–muted);margin-bottom:7px}
-.field input,.field select,.field textarea{width:100%;background:var(–s2);border:1px solid var(–border);
-border-radius:10px;padding:11px 13px;color:var(–text);font-family:var(–fm);font-size:13px;outline:none;transition:.2s}
-.field input:focus,.field select:focus,.field textarea:focus{border-color:var(–gold)}
+.field label{display:block;font-size:10px;letter-spacing:.12em;text-transform:uppercase;color:#7A7888;margin-bottom:7px}
+.field input,.field select,.field textarea{
+width:100%;
+background:#17171F;
+border:1px solid rgba(255,255,255,0.08);
+border-radius:10px;
+padding:12px 13px;
+color:#F0EDE8;
+font-family:var(–fm);
+font-size:15px;
+outline:none;
+-webkit-appearance:none;
+appearance:none;
+display:block;
+box-sizing:border-box;
+}
+.field input:focus,.field select:focus,.field textarea:focus{border-color:#C8A97E}
 .field textarea{resize:vertical;min-height:65px}
-.field select{appearance:none;cursor:pointer}
-.btn-gold{width:100%;padding:13px;background:var(–gold);color:#09090F;border:none;border-radius:10px;
-font-family:var(–fd);font-weight:800;font-size:14px;letter-spacing:.04em;cursor:pointer;
-transition:.18s;margin-top:6px}
-.btn-gold:hover{opacity:.88;transform:translateY(-1px)}
-.auth-err{color:var(–red);font-size:11px;text-align:center;margin-top:10px;min-height:16px}
+.field select{cursor:pointer}
+.btn-gold{
+width:100%;
+padding:14px;
+background:#C8A97E;
+color:#09090F;
+border:none;
+border-radius:10px;
+font-family:var(–fd);
+font-weight:800;
+font-size:15px;
+letter-spacing:.04em;
+cursor:pointer;
+margin-top:6px;
+display:block;
+text-align:center;
+-webkit-appearance:none;
+appearance:none;
+-webkit-tap-highlight-color:transparent;
+}
+.auth-err{color:#D97070;font-size:11px;text-align:center;margin-top:10px;min-height:16px}
 
 /* ── APP SHELL ── */
 #app{display:none;min-height:100vh;position:relative;z-index:1}
