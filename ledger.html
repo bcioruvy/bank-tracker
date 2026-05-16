@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+
 <html lang="en">
 <head>
 <meta charset="UTF-8"/>
@@ -20,192 +21,194 @@ html,body{height:100%;background:var(--bg);color:var(--text);font-family:var(--f
 ::-webkit-scrollbar{width:5px}::-webkit-scrollbar-thumb{background:var(--s3);border-radius:3px}
 
 /* ── GLOW ORBS ── */
-body::before{content:'';position:fixed;top:-250px;left:-150px;width:700px;height:700px;
-  background:radial-gradient(circle,rgba(200,169,126,.055) 0%,transparent 65%);pointer-events:none;z-index:0}
-body::after{content:'';position:fixed;bottom:-200px;right:-100px;width:550px;height:550px;
-  background:radial-gradient(circle,rgba(114,196,168,.04) 0%,transparent 65%);pointer-events:none;z-index:0}
+body::before{content:’’;position:fixed;top:-250px;left:-150px;width:700px;height:700px;
+background:radial-gradient(circle,rgba(200,169,126,.055) 0%,transparent 65%);pointer-events:none;z-index:0}
+body::after{content:’’;position:fixed;bottom:-200px;right:-100px;width:550px;height:550px;
+background:radial-gradient(circle,rgba(114,196,168,.04) 0%,transparent 65%);pointer-events:none;z-index:0}
 
 /* ── AUTH ── */
 #auth-screen{position:fixed;inset:0;display:flex;align-items:center;justify-content:center;
-  padding:24px;z-index:50;background:var(--bg)}
-.auth-card{background:var(--surface);border:1px solid var(--border);border-radius:22px;
-  padding:44px 38px;width:100%;max-width:400px;box-shadow:0 48px 96px rgba(0,0,0,.7)}
-.auth-wordmark{font-family:var(--fd);font-size:26px;font-weight:800;letter-spacing:-1px;margin-bottom:2px}
-.auth-wordmark span{color:var(--gold)}
-.auth-tagline{font-size:11px;letter-spacing:.1em;color:var(--muted);text-transform:uppercase;margin-bottom:32px}
-.tab-row{display:flex;background:var(--s2);border-radius:10px;padding:4px;gap:0;margin-bottom:26px}
-.tab-btn{flex:1;padding:9px;border:none;background:transparent;color:var(--muted);
-  font-family:var(--fm);font-size:12px;cursor:pointer;border-radius:7px;transition:.2s}
-.tab-btn.on{background:var(--s3);color:var(--text)}
+padding:24px;z-index:50;background:var(–bg)}
+.auth-card{background:var(–surface);border:1px solid var(–border);border-radius:22px;
+padding:44px 38px;width:100%;max-width:400px;box-shadow:0 48px 96px rgba(0,0,0,.7)}
+.auth-wordmark{font-family:var(–fd);font-size:26px;font-weight:800;letter-spacing:-1px;margin-bottom:2px}
+.auth-wordmark span{color:var(–gold)}
+.auth-tagline{font-size:11px;letter-spacing:.1em;color:var(–muted);text-transform:uppercase;margin-bottom:32px}
+.tab-row{display:flex;background:var(–s2);border-radius:10px;padding:4px;gap:0;margin-bottom:26px}
+.tab-btn{flex:1;padding:9px;border:none;background:transparent;color:var(–muted);
+font-family:var(–fm);font-size:12px;cursor:pointer;border-radius:7px;transition:.2s}
+.tab-btn.on{background:var(–s3);color:var(–text)}
 .field{margin-bottom:14px}
-.field label{display:block;font-size:10px;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);margin-bottom:7px}
-.field input,.field select,.field textarea{width:100%;background:var(--s2);border:1px solid var(--border);
-  border-radius:10px;padding:11px 13px;color:var(--text);font-family:var(--fm);font-size:13px;outline:none;transition:.2s}
-.field input:focus,.field select:focus,.field textarea:focus{border-color:var(--gold)}
+.field label{display:block;font-size:10px;letter-spacing:.12em;text-transform:uppercase;color:var(–muted);margin-bottom:7px}
+.field input,.field select,.field textarea{width:100%;background:var(–s2);border:1px solid var(–border);
+border-radius:10px;padding:11px 13px;color:var(–text);font-family:var(–fm);font-size:13px;outline:none;transition:.2s}
+.field input:focus,.field select:focus,.field textarea:focus{border-color:var(–gold)}
 .field textarea{resize:vertical;min-height:65px}
 .field select{appearance:none;cursor:pointer}
-.btn-gold{width:100%;padding:13px;background:var(--gold);color:#09090F;border:none;border-radius:10px;
-  font-family:var(--fd);font-weight:800;font-size:14px;letter-spacing:.04em;cursor:pointer;
-  transition:.18s;margin-top:6px}
+.btn-gold{width:100%;padding:13px;background:var(–gold);color:#09090F;border:none;border-radius:10px;
+font-family:var(–fd);font-weight:800;font-size:14px;letter-spacing:.04em;cursor:pointer;
+transition:.18s;margin-top:6px}
 .btn-gold:hover{opacity:.88;transform:translateY(-1px)}
-.auth-err{color:var(--red);font-size:11px;text-align:center;margin-top:10px;min-height:16px}
+.auth-err{color:var(–red);font-size:11px;text-align:center;margin-top:10px;min-height:16px}
 
 /* ── APP SHELL ── */
 #app{display:none;min-height:100vh;position:relative;z-index:1}
 .shell{display:flex;min-height:100vh}
 
 /* ── SIDEBAR ── */
-.sidebar{width:230px;background:var(--surface);border-right:1px solid var(--border);
-  display:flex;flex-direction:column;padding:0;position:fixed;top:0;left:0;bottom:0;z-index:20}
-.sb-logo{font-family:var(--fd);font-size:19px;font-weight:800;letter-spacing:-.5px;
-  padding:26px 22px 22px;border-bottom:1px solid var(--border)}
-.sb-logo span{color:var(--gold)}
-.sb-user{padding:18px 22px;border-bottom:1px solid var(--border)}
-.sb-name{font-size:13px;font-weight:500;color:var(--text);overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
-.sb-email{font-size:11px;color:var(--muted);overflow:hidden;text-overflow:ellipsis;white-space:nowrap;margin-top:2px}
+.sidebar{width:230px;background:var(–surface);border-right:1px solid var(–border);
+display:flex;flex-direction:column;padding:0;position:fixed;top:0;left:0;bottom:0;z-index:20}
+.sb-logo{font-family:var(–fd);font-size:19px;font-weight:800;letter-spacing:-.5px;
+padding:26px 22px 22px;border-bottom:1px solid var(–border)}
+.sb-logo span{color:var(–gold)}
+.sb-user{padding:18px 22px;border-bottom:1px solid var(–border)}
+.sb-name{font-size:13px;font-weight:500;color:var(–text);overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.sb-email{font-size:11px;color:var(–muted);overflow:hidden;text-overflow:ellipsis;white-space:nowrap;margin-top:2px}
 .sb-nav{padding:10px 0;flex:1}
-.nav-item{display:flex;align-items:center;gap:11px;padding:11px 22px;color:var(--muted);
-  font-size:12px;cursor:pointer;border-left:2px solid transparent;transition:.15s;letter-spacing:.02em}
-.nav-item:hover{color:var(--text);background:var(--s2)}
-.nav-item.on{color:var(--gold);border-left-color:var(--gold);background:rgba(200,169,126,.07)}
+.nav-item{display:flex;align-items:center;gap:11px;padding:11px 22px;color:var(–muted);
+font-size:12px;cursor:pointer;border-left:2px solid transparent;transition:.15s;letter-spacing:.02em}
+.nav-item:hover{color:var(–text);background:var(–s2)}
+.nav-item.on{color:var(–gold);border-left-color:var(–gold);background:rgba(200,169,126,.07)}
 .nav-icon{font-size:15px;width:18px;text-align:center}
 .sb-foot{padding:16px}
-.btn-signout{width:100%;padding:9px;background:transparent;border:1px solid var(--border);
-  border-radius:8px;color:var(--muted);font-family:var(--fm);font-size:11px;cursor:pointer;transition:.2s}
-.btn-signout:hover{border-color:var(--red);color:var(--red)}
+.btn-signout{width:100%;padding:9px;background:transparent;border:1px solid var(–border);
+border-radius:8px;color:var(–muted);font-family:var(–fm);font-size:11px;cursor:pointer;transition:.2s}
+.btn-signout:hover{border-color:var(–red);color:var(–red)}
 
 /* ── MAIN ── */
 .main{margin-left:230px;flex:1;padding:36px 38px;min-height:100vh}
-.pg-title{font-family:var(--fd);font-size:24px;font-weight:800;letter-spacing:-.5px;
-  margin-bottom:26px;color:var(--text)}
-.pg-title span{color:var(--gold)}
+.pg-title{font-family:var(–fd);font-size:24px;font-weight:800;letter-spacing:-.5px;
+margin-bottom:26px;color:var(–text)}
+.pg-title span{color:var(–gold)}
 
 /* ── CARDS ── */
-.card{background:var(--surface);border:1px solid var(--border);border-radius:15px;padding:22px}
-.card-title{font-size:10px;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);margin-bottom:14px;font-weight:500}
+.card{background:var(–surface);border:1px solid var(–border);border-radius:15px;padding:22px}
+.card-title{font-size:10px;letter-spacing:.12em;text-transform:uppercase;color:var(–muted);margin-bottom:14px;font-weight:500}
 .g2{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-bottom:18px}
 .g3{display:grid;grid-template-columns:1fr 1fr 1fr;gap:14px;margin-bottom:18px}
-.stat{background:var(--surface);border:1px solid var(--border);border-radius:13px;padding:18px 20px}
-.stat-lbl{font-size:10px;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);margin-bottom:7px}
-.stat-val{font-family:var(--fd);font-size:23px;font-weight:800;letter-spacing:-.5px;color:var(--text)}
-.stat-val.gold{color:var(--gold)}
-.stat-sub{font-size:11px;color:var(--muted);margin-top:3px}
+.stat{background:var(–surface);border:1px solid var(–border);border-radius:13px;padding:18px 20px}
+.stat-lbl{font-size:10px;letter-spacing:.1em;text-transform:uppercase;color:var(–muted);margin-bottom:7px}
+.stat-val{font-family:var(–fd);font-size:23px;font-weight:800;letter-spacing:-.5px;color:var(–text)}
+.stat-val.gold{color:var(–gold)}
+.stat-sub{font-size:11px;color:var(–muted);margin-top:3px}
 
 /* ── BADGES ── */
 .badge{display:inline-block;padding:2px 8px;border-radius:20px;font-size:10px;letter-spacing:.06em;text-transform:uppercase}
-.bdg-meezan{background:rgba(200,169,126,.13);color:var(--gold)}
-.bdg-sadapay{background:rgba(114,196,168,.13);color:var(--teal)}
-.bdg-cat{background:rgba(255,255,255,.06);color:var(--muted)}
+.bdg-meezan{background:rgba(200,169,126,.13);color:var(–gold)}
+.bdg-sadapay{background:rgba(114,196,168,.13);color:var(–teal)}
+.bdg-cat{background:rgba(255,255,255,.06);color:var(–muted)}
 
 /* ── WARNING ── */
 .warn-bar{display:flex;align-items:center;gap:12px;padding:13px 16px;
-  background:rgba(217,112,112,.09);border:1px solid rgba(217,112,112,.22);
-  border-radius:11px;margin-bottom:18px;font-size:12px;color:var(--red)}
+background:rgba(217,112,112,.09);border:1px solid rgba(217,112,112,.22);
+border-radius:11px;margin-bottom:18px;font-size:12px;color:var(–red)}
 
 /* ── GMAIL PANEL ── */
 .gmail-panel{display:flex;align-items:flex-start;gap:14px;padding:18px;
-  background:var(--s2);border:1px solid var(--border);border-radius:13px;margin-bottom:18px}
+background:var(–s2);border:1px solid var(–border);border-radius:13px;margin-bottom:18px}
 .gmail-icon{font-size:24px;margin-top:2px}
 .gmail-body{flex:1}
-.gmail-title{font-size:13px;font-weight:500;color:var(--text);margin-bottom:3px}
-.gmail-sub{font-size:11px;color:var(--muted);line-height:1.5}
+.gmail-title{font-size:13px;font-weight:500;color:var(–text);margin-bottom:3px}
+.gmail-sub{font-size:11px;color:var(–muted);line-height:1.5}
 .gmail-actions{display:flex;gap:8px;margin-top:10px;flex-wrap:wrap}
-.btn-sm{padding:8px 14px;border:1px solid var(--border);border-radius:8px;background:transparent;
-  color:var(--muted);font-family:var(--fm);font-size:11px;cursor:pointer;transition:.18s}
-.btn-sm:hover{border-color:var(--gold);color:var(--gold)}
-.btn-sm.teal:hover{border-color:var(--teal);color:var(--teal)}
+.btn-sm{padding:8px 14px;border:1px solid var(–border);border-radius:8px;background:transparent;
+color:var(–muted);font-family:var(–fm);font-size:11px;cursor:pointer;transition:.18s}
+.btn-sm:hover{border-color:var(–gold);color:var(–gold)}
+.btn-sm.teal:hover{border-color:var(–teal);color:var(–teal)}
 #gmail-area{margin-top:10px;display:none}
-#gmail-area textarea{width:100%;background:var(--s3);border:1px solid var(--border);border-radius:9px;
-  padding:10px 12px;color:var(--text);font-family:var(--fm);font-size:12px;outline:none;
-  resize:vertical;min-height:80px}
-#gmail-area textarea:focus{border-color:var(--gold)}
+#gmail-area textarea{width:100%;background:var(–s3);border:1px solid var(–border);border-radius:9px;
+padding:10px 12px;color:var(–text);font-family:var(–fm);font-size:12px;outline:none;
+resize:vertical;min-height:80px}
+#gmail-area textarea:focus{border-color:var(–gold)}
 
 /* ── TX LIST ── */
 .tx-list{display:flex;flex-direction:column;gap:7px}
 .tx-item{display:flex;align-items:center;gap:12px;padding:13px 15px;
-  background:var(--s2);border:1px solid var(--border);border-radius:12px;transition:.15s}
-.tx-item:hover{border-color:var(--border2)}
-.tx-ico{width:36px;height:36px;border-radius:9px;background:var(--s3);
-  display:flex;align-items:center;justify-content:center;font-size:15px;flex-shrink:0}
+background:var(–s2);border:1px solid var(–border);border-radius:12px;transition:.15s}
+.tx-item:hover{border-color:var(–border2)}
+.tx-ico{width:36px;height:36px;border-radius:9px;background:var(–s3);
+display:flex;align-items:center;justify-content:center;font-size:15px;flex-shrink:0}
 .tx-info{flex:1;min-width:0}
-.tx-desc{font-size:13px;font-weight:500;color:var(--text);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
-.tx-meta{font-size:10px;color:var(--muted);margin-top:3px;display:flex;gap:7px;align-items:center;flex-wrap:wrap}
-.tx-amt{font-family:var(--fd);font-size:15px;font-weight:700;color:var(--red);white-space:nowrap}
+.tx-desc{font-size:13px;font-weight:500;color:var(–text);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.tx-meta{font-size:10px;color:var(–muted);margin-top:3px;display:flex;gap:7px;align-items:center;flex-wrap:wrap}
+.tx-amt{font-family:var(–fd);font-size:15px;font-weight:700;color:var(–red);white-space:nowrap}
 .tx-btns{display:flex;gap:5px}
-.ico-btn{width:28px;height:28px;border:1px solid var(--border);border-radius:7px;background:transparent;
-  color:var(--muted);font-size:12px;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:.15s}
-.ico-btn:hover{border-color:var(--gold);color:var(--gold)}
-.ico-btn.del:hover{border-color:var(--red);color:var(--red)}
+.ico-btn{width:28px;height:28px;border:1px solid var(–border);border-radius:7px;background:transparent;
+color:var(–muted);font-size:12px;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:.15s}
+.ico-btn:hover{border-color:var(–gold);color:var(–gold)}
+.ico-btn.del:hover{border-color:var(–red);color:var(–red)}
 
 /* ── FILTER BAR ── */
 .fbar{display:flex;gap:9px;margin-bottom:17px;flex-wrap:wrap}
-.fbar input{flex:1;min-width:180px;background:var(--surface);border:1px solid var(--border);
-  border-radius:9px;padding:9px 12px;color:var(--text);font-family:var(--fm);font-size:12px;outline:none}
-.fbar input:focus{border-color:var(--gold)}
-.fbar select{background:var(--surface);border:1px solid var(--border);border-radius:9px;
-  padding:9px 12px;color:var(--text);font-family:var(--fm);font-size:12px;outline:none;
-  cursor:pointer;appearance:none;min-width:120px}
-.fbar select:focus{border-color:var(--gold)}
+.fbar input{flex:1;min-width:180px;background:var(–surface);border:1px solid var(–border);
+border-radius:9px;padding:9px 12px;color:var(–text);font-family:var(–fm);font-size:12px;outline:none}
+.fbar input:focus{border-color:var(–gold)}
+.fbar select{background:var(–surface);border:1px solid var(–border);border-radius:9px;
+padding:9px 12px;color:var(–text);font-family:var(–fm);font-size:12px;outline:none;
+cursor:pointer;appearance:none;min-width:120px}
+.fbar select:focus{border-color:var(–gold)}
 
 /* ── TOP ROW ── */
 .top-row{display:flex;justify-content:space-between;align-items:center;margin-bottom:16px;flex-wrap:wrap;gap:10px}
-.btn-add{padding:9px 16px;background:var(--gold);border:none;border-radius:9px;color:#09090F;
-  font-family:var(--fd);font-weight:700;font-size:13px;cursor:pointer;transition:.18s}
+.btn-add{padding:9px 16px;background:var(–gold);border:none;border-radius:9px;color:#09090F;
+font-family:var(–fd);font-weight:700;font-size:13px;cursor:pointer;transition:.18s}
 .btn-add:hover{opacity:.88}
-.btn-export{padding:9px 14px;background:transparent;border:1px solid var(--border);border-radius:9px;
-  color:var(--muted);font-family:var(--fm);font-size:11px;cursor:pointer;transition:.18s;display:flex;align-items:center;gap:6px}
-.btn-export:hover{border-color:var(--teal);color:var(--teal)}
+.btn-export{padding:9px 14px;background:transparent;border:1px solid var(–border);border-radius:9px;
+color:var(–muted);font-family:var(–fm);font-size:11px;cursor:pointer;transition:.18s;display:flex;align-items:center;gap:6px}
+.btn-export:hover{border-color:var(–teal);color:var(–teal)}
 
 /* ── MODAL ── */
 .overlay{position:fixed;inset:0;background:rgba(0,0,0,.72);backdrop-filter:blur(5px);
-  z-index:100;display:none;align-items:center;justify-content:center;padding:20px}
+z-index:100;display:none;align-items:center;justify-content:center;padding:20px}
 .overlay.show{display:flex}
-.modal{background:var(--surface);border:1px solid var(--border);border-radius:20px;
-  padding:30px;width:100%;max-width:460px;box-shadow:0 48px 96px rgba(0,0,0,.7);
-  max-height:90vh;overflow-y:auto}
-.modal-title{font-family:var(--fd);font-size:19px;font-weight:800;margin-bottom:22px}
+.modal{background:var(–surface);border:1px solid var(–border);border-radius:20px;
+padding:30px;width:100%;max-width:460px;box-shadow:0 48px 96px rgba(0,0,0,.7);
+max-height:90vh;overflow-y:auto}
+.modal-title{font-family:var(–fd);font-size:19px;font-weight:800;margin-bottom:22px}
 .mfooter{display:flex;gap:9px;margin-top:22px}
-.btn-cancel{flex:1;padding:11px;background:transparent;border:1px solid var(--border);
-  border-radius:9px;color:var(--muted);font-family:var(--fm);font-size:12px;cursor:pointer;transition:.2s}
-.btn-cancel:hover{border-color:var(--text);color:var(--text)}
-.btn-save{flex:1;padding:11px;background:var(--gold);border:none;border-radius:9px;color:#09090F;
-  font-family:var(--fd);font-weight:700;font-size:13px;cursor:pointer;transition:.18s}
+.btn-cancel{flex:1;padding:11px;background:transparent;border:1px solid var(–border);
+border-radius:9px;color:var(–muted);font-family:var(–fm);font-size:12px;cursor:pointer;transition:.2s}
+.btn-cancel:hover{border-color:var(–text);color:var(–text)}
+.btn-save{flex:1;padding:11px;background:var(–gold);border:none;border-radius:9px;color:#09090F;
+font-family:var(–fd);font-weight:700;font-size:13px;cursor:pointer;transition:.18s}
 .btn-save:hover{opacity:.88}
 
 /* ── CHARTS ── */
 .charts-g{display:grid;grid-template-columns:1fr 1fr;gap:18px;margin-bottom:18px}
 .month-row{display:flex;gap:7px;flex-wrap:wrap;margin-bottom:18px}
-.m-btn{padding:6px 13px;border:1px solid var(--border);border-radius:7px;background:transparent;
-  color:var(--muted);font-family:var(--fm);font-size:10px;cursor:pointer;transition:.15s;letter-spacing:.04em}
-.m-btn.on{border-color:var(--gold);color:var(--gold);background:rgba(200,169,126,.08)}
+.m-btn{padding:6px 13px;border:1px solid var(–border);border-radius:7px;background:transparent;
+color:var(–muted);font-family:var(–fm);font-size:10px;cursor:pointer;transition:.15s;letter-spacing:.04em}
+.m-btn.on{border-color:var(–gold);color:var(–gold);background:rgba(200,169,126,.08)}
 
 /* ── CATEGORIES ── */
 .cat-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:10px;margin-bottom:16px}
-.cat-card{background:var(--s2);border:1px solid var(--border);border-radius:11px;
-  padding:14px;display:flex;align-items:center;justify-content:space-between}
-.cat-name{font-size:12px;color:var(--text)}
-.cat-del{width:24px;height:24px;border:1px solid var(--border);border-radius:6px;background:transparent;
-  color:var(--muted);font-size:11px;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:.15s}
-.cat-del:hover{border-color:var(--red);color:var(--red)}
+.cat-card{background:var(–s2);border:1px solid var(–border);border-radius:11px;
+padding:14px;display:flex;align-items:center;justify-content:space-between}
+.cat-name{font-size:12px;color:var(–text)}
+.cat-del{width:24px;height:24px;border:1px solid var(–border);border-radius:6px;background:transparent;
+color:var(–muted);font-size:11px;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:.15s}
+.cat-del:hover{border-color:var(–red);color:var(–red)}
 .add-cat-row{display:flex;gap:9px}
-.add-cat-row input{flex:1;background:var(--s2);border:1px solid var(--border);border-radius:9px;
-  padding:10px 12px;color:var(--text);font-family:var(--fm);font-size:12px;outline:none}
-.add-cat-row input:focus{border-color:var(--gold)}
-.add-cat-row button{padding:10px 16px;background:var(--gold);border:none;border-radius:9px;
-  color:#09090F;font-family:var(--fd);font-weight:700;font-size:12px;cursor:pointer}
+.add-cat-row input{flex:1;background:var(–s2);border:1px solid var(–border);border-radius:9px;
+padding:10px 12px;color:var(–text);font-family:var(–fm);font-size:12px;outline:none}
+.add-cat-row input:focus{border-color:var(–gold)}
+.add-cat-row button{padding:10px 16px;background:var(–gold);border:none;border-radius:9px;
+color:#09090F;font-family:var(–fd);font-weight:700;font-size:12px;cursor:pointer}
 
 /* ── EMPTY ── */
-.empty{text-align:center;padding:44px 20px;color:var(--muted)}
+.empty{text-align:center;padding:44px 20px;color:var(–muted)}
 .empty .ei{font-size:30px;margin-bottom:11px}
 .empty p{font-size:11px;margin-top:5px}
 
 /* ── BALANCE MODAL HINT ── */
-.bal-hint{font-size:10px;color:var(--muted);margin-top:4px}
+.bal-hint{font-size:10px;color:var(–muted);margin-top:4px}
 </style>
+
 </head>
 <body>
 
 <!-- ══ AUTH ══════════════════════════════════════════════════════════════ -->
+
 <div id="auth-screen">
   <div class="auth-card">
     <div class="auth-wordmark">Ledger<span>.</span></div>
@@ -232,33 +235,38 @@ body::after{content:'';position:fixed;bottom:-200px;right:-100px;width:550px;hei
 </div>
 
 <!-- ══ APP ═══════════════════════════════════════════════════════════════ -->
+
 <div id="app">
   <div class="shell">
 
-    <!-- Sidebar -->
-    <div class="sidebar">
-      <div class="sb-logo">Ledger<span>.</span></div>
-      <div class="sb-user">
-        <div class="sb-name" id="sb-name">—</div>
-        <div class="sb-email" id="sb-email">—</div>
-      </div>
-      <div class="sb-nav">
-        <div class="nav-item on" onclick="goPage('dashboard')" id="nav-dashboard"><span class="nav-icon">⬡</span> Dashboard</div>
-        <div class="nav-item" onclick="goPage('transactions')" id="nav-transactions"><span class="nav-icon">↕</span> Transactions</div>
-        <div class="nav-item" onclick="goPage('analytics')" id="nav-analytics"><span class="nav-icon">◎</span> Analytics</div>
-        <div class="nav-item" onclick="goPage('categories')" id="nav-categories"><span class="nav-icon">❖</span> Categories</div>
-      </div>
-      <div class="sb-foot">
-        <button class="btn-signout" onclick="signOut()">Sign Out</button>
-      </div>
-    </div>
+```
+<!-- Sidebar -->
+<div class="sidebar">
+  <div class="sb-logo">Ledger<span>.</span></div>
+  <div class="sb-user">
+    <div class="sb-name" id="sb-name">—</div>
+    <div class="sb-email" id="sb-email">—</div>
+  </div>
+  <div class="sb-nav">
+    <div class="nav-item on" onclick="goPage('dashboard')" id="nav-dashboard"><span class="nav-icon">⬡</span> Dashboard</div>
+    <div class="nav-item" onclick="goPage('transactions')" id="nav-transactions"><span class="nav-icon">↕</span> Transactions</div>
+    <div class="nav-item" onclick="goPage('analytics')" id="nav-analytics"><span class="nav-icon">◎</span> Analytics</div>
+    <div class="nav-item" onclick="goPage('categories')" id="nav-categories"><span class="nav-icon">❖</span> Categories</div>
+  </div>
+  <div class="sb-foot">
+    <button class="btn-signout" onclick="signOut()">Sign Out</button>
+  </div>
+</div>
 
-    <!-- Main -->
-    <div class="main" id="main-area"></div>
+<!-- Main -->
+<div class="main" id="main-area"></div>
+```
+
   </div>
 </div>
 
 <!-- ══ MODAL ══════════════════════════════════════════════════════════════ -->
+
 <div class="overlay" id="modal-overlay" onclick="if(event.target===this)closeModal()">
   <div class="modal">
     <div class="modal-title" id="modal-title">Add Transaction</div>
@@ -415,9 +423,13 @@ function renderDashboard(){
       </div>
       <div id="gmail-area">
         <textarea id="gmail-txt" placeholder="Paste Meezan bank alert email text here... e.g. A debit of Rs. 2,500 has been made at Shell Petrol on your account..."></textarea>
-        <button class="btn-sm" style="margin-top:7px" onclick="parseGmail()">Parse & Auto-fill →</button>
-      </div>
-    </div>
+
+```
+    <button class="btn-sm" style="margin-top:7px" onclick="parseGmail()">Parse & Auto-fill →</button>
+  </div>
+</div>
+```
+
   </div>
 
   <div class="top-row">
@@ -432,15 +444,16 @@ function renderDashboard(){
 
 // ── TRANSACTIONS ───────────────────────────────────────────────────────────
 function renderTransactions(){
-  const search=(window._txSearch||'').toLowerCase();
-  const fBank=window._txBank||'All';
-  const fCat=window._txCat||'All';
-  const filtered=txns.filter(t=>{
-    return t.description.toLowerCase().includes(search)&&
-      (fBank==='All'||t.bank===fBank)&&
-      (fCat==='All'||t.category===fCat);
-  });
-  return`
+const search=(window._txSearch||’’).toLowerCase();
+const fBank=window._txBank||‘All’;
+const fCat=window._txCat||‘All’;
+const filtered=txns.filter(t=>{
+return t.description.toLowerCase().includes(search)&&
+(fBank===‘All’||t.bank===fBank)&&
+(fCat===‘All’||t.category===fCat);
+});
+return`
+
   <div class="pg-title">Transactions<span>.</span></div>
   <div class="top-row">
     <div style="display:flex;gap:8px">
@@ -467,57 +480,41 @@ function renderTransactions(){
 }
 
 function txRow(t){
-  return`<div class="tx-item">
-    <div class="tx-ico">${catIcon(t.category)}</div>
-    <div class="tx-info">
-      <div class="tx-desc">${t.description}</div>
-      <div class="tx-meta">
-        <span>${fmtDate(t.date)}</span>
-        <span class="badge bdg-${t.bank.toLowerCase()}">${t.bank}</span>
-        <span class="badge bdg-cat">${t.category}</span>
-        ${t.notes?`<span style="color:var(--muted);font-size:10px">📝 ${t.notes}</span>`:''}
-      </div>
-    </div>
-    <div class="tx-amt">−${fmt(t.amount)}</div>
-    <div class="tx-btns">
-      <button class="ico-btn" onclick="openEditModal('${t.id}')">✏️</button>
-      <button class="ico-btn del" onclick="deleteTx('${t.id}')">🗑</button>
-    </div>
+return`<div class="tx-item"> <div class="tx-ico">${catIcon(t.category)}</div> <div class="tx-info"> <div class="tx-desc">${t.description}</div> <div class="tx-meta"> <span>${fmtDate(t.date)}</span> <span class="badge bdg-${t.bank.toLowerCase()}">${t.bank}</span> <span class="badge bdg-cat">${t.category}</span> ${t.notes?`<span style="color:var(--muted);font-size:10px">📝 ${t.notes}</span>`:’’}
+</div>
+</div>
+<div class="tx-amt">−${fmt(t.amount)}</div>
+<div class="tx-btns">
+<button class="ico-btn" onclick="openEditModal('${t.id}')">✏️</button>
+<button class="ico-btn del" onclick="deleteTx('${t.id}')">🗑</button>
+</div>
+
   </div>`;
 }
 
 // ── ANALYTICS ──────────────────────────────────────────────────────────────
 function renderAnalytics(){
-  const months=getMonths();
-  const monthTxns=txns.filter(t=>monthKey(t.date)===selectedMonth);
-  const monthTotal=monthTxns.reduce((s,t)=>s+t.amount,0);
-  const catMap={};
-  monthTxns.forEach(t=>{catMap[t.category]=(catMap[t.category]||0)+t.amount});
-  const topCat=Object.entries(catMap).sort((a,b)=>b[1]-a[1])[0];
+const months=getMonths();
+const monthTxns=txns.filter(t=>monthKey(t.date)===selectedMonth);
+const monthTotal=monthTxns.reduce((s,t)=>s+t.amount,0);
+const catMap={};
+monthTxns.forEach(t=>{catMap[t.category]=(catMap[t.category]||0)+t.amount});
+const topCat=Object.entries(catMap).sort((a,b)=>b[1]-a[1])[0];
 
-  // Bank split
-  const bankSplit=BANKS.map(b=>{
-    const bt=monthTxns.filter(t=>t.bank===b);
-    const tot=bt.reduce((s,t)=>s+t.amount,0);
-    return`<div class="card">
-      <div class="card-title">${b} — ${monthLabel(selectedMonth)}</div>
-      <div style="margin-bottom:12px">
-        <span class="stat-val" style="font-size:20px">${fmt(tot)}</span>
-        <span style="margin-left:9px;font-size:11px;color:var(--muted)">${bt.length} txns</span>
-      </div>
-      <div class="tx-list">
-        ${bt.length===0?`<div style="color:var(--muted);font-size:11px;text-align:center;padding:14px 0">No transactions</div>`
-        :bt.slice(0,5).map(t=>`<div class="tx-item" style="padding:9px 11px">
-          <div class="tx-ico" style="width:30px;height:30px;font-size:13px">${catIcon(t.category)}</div>
-          <div class="tx-info"><div class="tx-desc" style="font-size:12px">${t.description}</div>
-          <div class="tx-meta">${fmtDate(t.date)}</div></div>
-          <div class="tx-amt" style="font-size:13px">−${fmt(t.amount)}</div>
-        </div>`).join('')}
-      </div>
-    </div>`;
-  }).join('');
+// Bank split
+const bankSplit=BANKS.map(b=>{
+const bt=monthTxns.filter(t=>t.bank===b);
+const tot=bt.reduce((s,t)=>s+t.amount,0);
+return`<div class="card"> <div class="card-title">${b} — ${monthLabel(selectedMonth)}</div> <div style="margin-bottom:12px"> <span class="stat-val" style="font-size:20px">${fmt(tot)}</span> <span style="margin-left:9px;font-size:11px;color:var(--muted)">${bt.length} txns</span> </div> <div class="tx-list"> ${bt.length===0?`<div style="color:var(--muted);font-size:11px;text-align:center;padding:14px 0">No transactions</div>` :bt.slice(0,5).map(t=>`<div class="tx-item" style="padding:9px 11px">
+<div class="tx-ico" style="width:30px;height:30px;font-size:13px">${catIcon(t.category)}</div>
+<div class="tx-info"><div class="tx-desc" style="font-size:12px">${t.description}</div>
+<div class="tx-meta">${fmtDate(t.date)}</div></div>
+<div class="tx-amt" style="font-size:13px">−${fmt(t.amount)}</div>
+</div>`).join('')} </div> </div>`;
+}).join(’’);
 
-  return`
+return`
+
   <div class="pg-title">Analytics<span>.</span></div>
   <div class="month-row">
     ${months.map(m=>`<button class="m-btn ${m===selectedMonth?'on':''}" onclick="selectedMonth='${m}';render()">${monthLabel(m)}</button>`).join('')}
@@ -543,50 +540,51 @@ function renderAnalytics(){
 }
 
 function getMonths(){
-  const keys=[...new Set(txns.map(t=>monthKey(t.date)))].sort().reverse();
-  const cur=monthKey(new Date());
-  if(!keys.includes(cur))keys.unshift(cur);
-  return keys;
+const keys=[…new Set(txns.map(t=>monthKey(t.date)))].sort().reverse();
+const cur=monthKey(new Date());
+if(!keys.includes(cur))keys.unshift(cur);
+return keys;
 }
 
 function initCharts(){
-  const monthTxns=txns.filter(t=>monthKey(t.date)===selectedMonth);
-  if(monthTxns.length===0)return;
-  const catMap={};
-  monthTxns.forEach(t=>{catMap[t.category]=(catMap[t.category]||0)+t.amount});
-  const catLabels=Object.keys(catMap);
-  const catVals=Object.values(catMap);
+const monthTxns=txns.filter(t=>monthKey(t.date)===selectedMonth);
+if(monthTxns.length===0)return;
+const catMap={};
+monthTxns.forEach(t=>{catMap[t.category]=(catMap[t.category]||0)+t.amount});
+const catLabels=Object.keys(catMap);
+const catVals=Object.values(catMap);
 
-  const bankData=BANKS.map(b=>monthTxns.filter(t=>t.bank===b).reduce((s,t)=>s+t.amount,0));
+const bankData=BANKS.map(b=>monthTxns.filter(t=>t.bank===b).reduce((s,t)=>s+t.amount,0));
 
-  const cfgBase={responsive:true,plugins:{legend:{labels:{color:'#7A7888',font:{family:"'DM Mono',monospace",size:11}}}}};
+const cfgBase={responsive:true,plugins:{legend:{labels:{color:’#7A7888’,font:{family:”‘DM Mono’,monospace”,size:11}}}}};
 
-  const c1=document.getElementById('chart-cat');
-  if(c1){
-    chartInstances.cat=new Chart(c1,{type:'doughnut',data:{
-      labels:catLabels,
-      datasets:[{data:catVals,backgroundColor:COLORS,borderWidth:0,hoverOffset:6}]
-    },options:{...cfgBase,cutout:'62%',plugins:{...cfgBase.plugins,
-      tooltip:{callbacks:{label:ctx=>' '+fmt(ctx.parsed)},bodyFont:{family:"'DM Mono'"},backgroundColor:'#111119',borderColor:'rgba(255,255,255,.07)',borderWidth:1}
-    }}});
-  }
-  const c2=document.getElementById('chart-bank');
-  if(c2){
-    chartInstances.bank=new Chart(c2,{type:'bar',data:{
-      labels:BANKS,
-      datasets:[{data:bankData,backgroundColor:['#C8A97E','#72C4A8'],borderRadius:7,borderSkipped:false}]
-    },options:{...cfgBase,scales:{
-      x:{grid:{color:'rgba(255,255,255,.04)'},ticks:{color:'#7A7888',font:{family:"'DM Mono'",size:11}}},
-      y:{grid:{color:'rgba(255,255,255,.04)'},ticks:{color:'#7A7888',font:{family:"'DM Mono'",size:10},callback:v=>v>=1000?(v/1000)+'k':v}}
-    },plugins:{...cfgBase.plugins,
-      tooltip:{callbacks:{label:ctx=>' '+fmt(ctx.parsed.y)},bodyFont:{family:"'DM Mono'"},backgroundColor:'#111119',borderColor:'rgba(255,255,255,.07)',borderWidth:1}
-    }}});
-  }
+const c1=document.getElementById(‘chart-cat’);
+if(c1){
+chartInstances.cat=new Chart(c1,{type:‘doughnut’,data:{
+labels:catLabels,
+datasets:[{data:catVals,backgroundColor:COLORS,borderWidth:0,hoverOffset:6}]
+},options:{…cfgBase,cutout:‘62%’,plugins:{…cfgBase.plugins,
+tooltip:{callbacks:{label:ctx=>’ ‘+fmt(ctx.parsed)},bodyFont:{family:”‘DM Mono’”},backgroundColor:’#111119’,borderColor:‘rgba(255,255,255,.07)’,borderWidth:1}
+}}});
+}
+const c2=document.getElementById(‘chart-bank’);
+if(c2){
+chartInstances.bank=new Chart(c2,{type:‘bar’,data:{
+labels:BANKS,
+datasets:[{data:bankData,backgroundColor:[’#C8A97E’,’#72C4A8’],borderRadius:7,borderSkipped:false}]
+},options:{…cfgBase,scales:{
+x:{grid:{color:‘rgba(255,255,255,.04)’},ticks:{color:’#7A7888’,font:{family:”‘DM Mono’”,size:11}}},
+y:{grid:{color:‘rgba(255,255,255,.04)’},ticks:{color:’#7A7888’,font:{family:”‘DM Mono’”,size:10},callback:v=>v>=1000?(v/1000)+‘k’:v}}
+},plugins:{…cfgBase.plugins,
+tooltip:{callbacks:{label:ctx=>’ ‘+fmt(ctx.parsed.y)},bodyFont:{family:”‘DM Mono’”},backgroundColor:’#111119’,borderColor:‘rgba(255,255,255,.07)’,borderWidth:1}
+}}});
+}
 }
 
 // ── CATEGORIES ─────────────────────────────────────────────────────────────
 function renderCategories(){
-  return`
+return`
+
   <div class="pg-title">Categories<span>.</span></div>
   <div class="card">
     <div class="card-title">Manage Categories</div>
@@ -613,12 +611,13 @@ function deleteCat(c){
 }
 
 // ── MODALS ─────────────────────────────────────────────────────────────────
-function openModal(){document.getElementById('modal-overlay').classList.add('show')}
-function closeModal(){document.getElementById('modal-overlay').classList.remove('show');modalMode=null;editId=null}
+function openModal(){document.getElementById(‘modal-overlay’).classList.add(‘show’)}
+function closeModal(){document.getElementById(‘modal-overlay’).classList.remove(‘show’);modalMode=null;editId=null}
 
 function buildTxForm(prefill={}){
-  const today=new Date().toISOString().slice(0,10);
-  return`
+const today=new Date().toISOString().slice(0,10);
+return`
+
   <div class="field"><label>Description</label>
     <input type="text" id="f-desc" placeholder="e.g. Grocery at Carrefour" value="${prefill.description||''}"/></div>
   <div class="g2">
@@ -642,88 +641,88 @@ function buildTxForm(prefill={}){
 }
 
 function openAddModal(prefill={}){
-  modalMode='add';editId=null;
-  document.getElementById('modal-title').textContent='Add Transaction';
-  document.getElementById('modal-save-btn').textContent='Add';
-  document.getElementById('modal-body').innerHTML=buildTxForm(prefill);
-  openModal();
+modalMode=‘add’;editId=null;
+document.getElementById(‘modal-title’).textContent=‘Add Transaction’;
+document.getElementById(‘modal-save-btn’).textContent=‘Add’;
+document.getElementById(‘modal-body’).innerHTML=buildTxForm(prefill);
+openModal();
 }
 function openEditModal(id){
-  const t=txns.find(x=>x.id===id);if(!t)return;
-  modalMode='edit';editId=id;
-  document.getElementById('modal-title').textContent='Edit Transaction';
-  document.getElementById('modal-save-btn').textContent='Save Changes';
-  document.getElementById('modal-body').innerHTML=buildTxForm(t);
-  openModal();
+const t=txns.find(x=>x.id===id);if(!t)return;
+modalMode=‘edit’;editId=id;
+document.getElementById(‘modal-title’).textContent=‘Edit Transaction’;
+document.getElementById(‘modal-save-btn’).textContent=‘Save Changes’;
+document.getElementById(‘modal-body’).innerHTML=buildTxForm(t);
+openModal();
 }
 function openBalanceModal(){
-  modalMode='balance';editId=null;
-  document.getElementById('modal-title').textContent='Update Balances';
-  document.getElementById('modal-save-btn').textContent='Save';
-  document.getElementById('modal-body').innerHTML=`
-    ${BANKS.map(b=>`<div class="field"><label>${b} Balance (Rs.)</label>
-      <input type="number" id="bal-${b}" value="${balances[b]||0}"/>
-      <div class="bal-hint">Current: ${fmt(balances[b])}</div></div>`).join('')}`;
-  openModal();
+modalMode=‘balance’;editId=null;
+document.getElementById(‘modal-title’).textContent=‘Update Balances’;
+document.getElementById(‘modal-save-btn’).textContent=‘Save’;
+document.getElementById(‘modal-body’).innerHTML=` ${BANKS.map(b=>`<div class="field"><label>${b} Balance (Rs.)</label>
+<input type="number" id="bal-${b}" value="${balances[b]||0}"/>
+<div class="bal-hint">Current: ${fmt(balances[b])}</div></div>`).join('')}`;
+openModal();
 }
 
 function modalSave(){
-  if(modalMode==='balance'){
-    BANKS.forEach(b=>{balances[b]=parseFloat(document.getElementById('bal-'+b)?.value)||0;});
-    save();closeModal();render();return;
-  }
-  const desc=document.getElementById('f-desc')?.value.trim();
-  const amt=parseFloat(document.getElementById('f-amt')?.value);
-  const date=document.getElementById('f-date')?.value;
-  const bank=document.getElementById('f-bank')?.value;
-  const category=document.getElementById('f-cat')?.value;
-  const notes=document.getElementById('f-notes')?.value.trim();
-  if(!desc||!amt)return;
-  if(modalMode==='add'){
-    txns.unshift({id:uid(),description:desc,amount:amt,date:new Date(date).toISOString(),bank,category,notes});
-    balances[bank]=Math.max(0,(balances[bank]||0)-amt);
-  }else if(modalMode==='edit'){
-    const i=txns.findIndex(t=>t.id===editId);
-    if(i>-1)txns[i]={...txns[i],description:desc,amount:amt,date:new Date(date).toISOString(),bank,category,notes};
-  }
-  save();closeModal();render();
+if(modalMode===‘balance’){
+BANKS.forEach(b=>{balances[b]=parseFloat(document.getElementById(‘bal-’+b)?.value)||0;});
+save();closeModal();render();return;
+}
+const desc=document.getElementById(‘f-desc’)?.value.trim();
+const amt=parseFloat(document.getElementById(‘f-amt’)?.value);
+const date=document.getElementById(‘f-date’)?.value;
+const bank=document.getElementById(‘f-bank’)?.value;
+const category=document.getElementById(‘f-cat’)?.value;
+const notes=document.getElementById(‘f-notes’)?.value.trim();
+if(!desc||!amt)return;
+if(modalMode===‘add’){
+txns.unshift({id:uid(),description:desc,amount:amt,date:new Date(date).toISOString(),bank,category,notes});
+balances[bank]=Math.max(0,(balances[bank]||0)-amt);
+}else if(modalMode===‘edit’){
+const i=txns.findIndex(t=>t.id===editId);
+if(i>-1)txns[i]={…txns[i],description:desc,amount:amt,date:new Date(date).toISOString(),bank,category,notes};
+}
+save();closeModal();render();
 }
 
 function deleteTx(id){
-  const t=txns.find(x=>x.id===id);
-  if(t)balances[t.bank]=(balances[t.bank]||0)+t.amount;
-  txns=txns.filter(x=>x.id!==id);
-  save();render();
+const t=txns.find(x=>x.id===id);
+if(t)balances[t.bank]=(balances[t.bank]||0)+t.amount;
+txns=txns.filter(x=>x.id!==id);
+save();render();
 }
 
 // ── GMAIL PARSER ───────────────────────────────────────────────────────────
 function toggleGmailArea(){
-  const el=document.getElementById('gmail-area');
-  if(el)el.style.display=el.style.display==='none'?'block':'none';
+const el=document.getElementById(‘gmail-area’);
+if(el)el.style.display=el.style.display===‘none’?‘block’:‘none’;
 }
 function parseGmail(){
-  const raw=document.getElementById('gmail-txt')?.value||'';
-  const amtMatch=raw.match(/(?:Rs\.?|PKR)\s*([\d,]+)/i);
-  const descMatch=raw.match(/(?:at|to|for)\s+([A-Za-z0-9 &'-]+?)(?:\s+on|\s+dated|\s+from|\.|\n|$)/i);
-  const amt=amtMatch?parseFloat(amtMatch[1].replace(/,/g,'')):null;
-  const desc=descMatch?descMatch[1].trim():'Meezan Transaction';
-  if(amt){
-    document.getElementById('gmail-area').style.display='none';
-    openAddModal({amount:amt,description:desc,bank:'Meezan',category:'Other'});
-  }else{
-    alert('Could not detect an amount in this email. Please add the transaction manually.');
-  }
+const raw=document.getElementById(‘gmail-txt’)?.value||’’;
+const amtMatch=raw.match(/(?:Rs.?|PKR)\s*([\d,]+)/i);
+const descMatch=raw.match(/(?:at|to|for)\s+([A-Za-z0-9 &’-]+?)(?:\s+on|\s+dated|\s+from|.|\n|$)/i);
+const amt=amtMatch?parseFloat(amtMatch[1].replace(/,/g,’’)):null;
+const desc=descMatch?descMatch[1].trim():‘Meezan Transaction’;
+if(amt){
+document.getElementById(‘gmail-area’).style.display=‘none’;
+openAddModal({amount:amt,description:desc,bank:‘Meezan’,category:‘Other’});
+}else{
+alert(‘Could not detect an amount in this email. Please add the transaction manually.’);
+}
 }
 
 // ── EXPORT CSV ─────────────────────────────────────────────────────────────
 function exportCSV(){
-  const rows=[['Date','Description','Amount (Rs.)','Category','Bank','Notes'],
-    ...txns.map(t=>[fmtDate(t.date),t.description,t.amount,t.category,t.bank,t.notes||''])];
-  const csv=rows.map(r=>r.map(v=>'"'+String(v).replace(/"/g,'""')+'"').join(',')).join('\n');
-  const a=document.createElement('a');
-  a.href='data:text/csv;charset=utf-8,'+encodeURIComponent(csv);
-  a.download='ledger-transactions.csv';a.click();
+const rows=[[‘Date’,‘Description’,‘Amount (Rs.)’,‘Category’,‘Bank’,‘Notes’],
+…txns.map(t=>[fmtDate(t.date),t.description,t.amount,t.category,t.bank,t.notes||’’])];
+const csv=rows.map(r=>r.map(v=>’”’+String(v).replace(/”/g,’””’)+’”’).join(’,’)).join(’\n’);
+const a=document.createElement(‘a’);
+a.href=‘data:text/csv;charset=utf-8,’+encodeURIComponent(csv);
+a.download=‘ledger-transactions.csv’;a.click();
 }
 </script>
+
 </body>
 </html>
