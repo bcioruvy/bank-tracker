@@ -27,12 +27,13 @@ background:radial-gradient(circle,rgba(114,196,168,.04) 0%,transparent 65%);poin
 
 /* ── AUTH ── */
 #auth-screen{
-position:fixed;top:0;left:0;right:0;bottom:0;
+position:fixed;top:0;left:0;width:100%;height:100%;
 display:-webkit-flex;display:flex;
 -webkit-align-items:center;align-items:center;
 -webkit-justify-content:center;justify-content:center;
 padding:24px;z-index:50;background:#09090F;
--webkit-overflow-scrolling:touch;
+overflow-y:auto;-webkit-overflow-scrolling:touch;
+touch-action:manipulation;
 }
 .auth-card{
 background:#111119;
@@ -267,22 +268,22 @@ color:#09090F;font-family:var(–fd);font-weight:700;font-size:12px;cursor:point
     <div class="auth-wordmark">Ledger<span>.</span></div>
     <div class="auth-tagline">Bank Transaction Tracker</div>
     <div class="tab-row">
-      <button class="tab-btn on" id="tab-login" onclick="switchTab('login')">Sign In</button>
-      <button class="tab-btn" id="tab-signup" onclick="switchTab('signup')">Sign Up</button>
+      <button class="tab-btn on" id="tab-login" type="button">Sign In</button>
+      <button class="tab-btn" id="tab-signup" type="button">Sign Up</button>
     </div>
     <div id="field-name" class="field" style="display:none">
       <label>Full Name</label>
-      <input type="text" id="inp-name" placeholder="Your name"/>
+      <input type="text" id="inp-name" placeholder="Your name" autocomplete="name"/>
     </div>
     <div class="field">
       <label>Email</label>
-      <input type="email" id="inp-email" placeholder="you@email.com" onkeydown="if(event.key==='Enter')doAuth()"/>
+      <input type="email" id="inp-email" placeholder="you@email.com" autocomplete="email"/>
     </div>
     <div class="field">
       <label>Password</label>
-      <input type="password" id="inp-pass" placeholder="••••••••" onkeydown="if(event.key==='Enter')doAuth()"/>
+      <input type="password" id="inp-pass" placeholder="••••••••" autocomplete="current-password"/>
     </div>
-    <button class="btn-gold" onclick="doAuth()" id="auth-btn">Sign In</button>
+    <button class="btn-gold" id="auth-btn" type="button">Sign In</button>
     <div class="auth-err" id="auth-err"></div>
   </div>
 </div>
@@ -410,8 +411,18 @@ function startApp(){
   selectedMonth=monthKey(new Date());
   goPage('dashboard');
 }
-// Auto login
+// Auto login + attach event listeners properly for Safari
 window.addEventListener('DOMContentLoaded',()=>{
+  // Attach button events via addEventListener (Safari-safe)
+  document.getElementById('tab-login').addEventListener('touchend',function(e){e.preventDefault();switchTab('login')});
+  document.getElementById('tab-login').addEventListener('click',function(){switchTab('login')});
+  document.getElementById('tab-signup').addEventListener('touchend',function(e){e.preventDefault();switchTab('signup')});
+  document.getElementById('tab-signup').addEventListener('click',function(){switchTab('signup')});
+  document.getElementById('auth-btn').addEventListener('touchend',function(e){e.preventDefault();doAuth()});
+  document.getElementById('auth-btn').addEventListener('click',function(){doAuth()});
+  document.getElementById('inp-pass').addEventListener('keydown',function(e){if(e.key==='Enter')doAuth()});
+  document.getElementById('inp-email').addEventListener('keydown',function(e){if(e.key==='Enter')doAuth()});
+
   const u=JSON.parse(localStorage.getItem('ldg_user')||'null');
   if(u){user=u;load();startApp();}
 });
